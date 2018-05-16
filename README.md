@@ -16,7 +16,6 @@ It will create an Mapserver application run with a modern web application NGINX 
 This stack is composed of the following:
 * [Mapserver](http://mapserver.org/)
 * [OGR2OGR](http://www.gdal.org/ogr2ogr.html)
-* [Postgis](http://postgis.net/)
 * [NGINX](https://www.nginx.com/)
 * [Supervisor](http://supervisord.org/)
 
@@ -25,9 +24,6 @@ Mapserver is the platform that will provide the WFS, WMS of WCS services based o
 
 ### OGR2OGR
 For transforming simple features from a data store to WFS features.
-
-### Postgis
-Postgis as spatial database for vector data.
 
 ### NGINX
 NGINX is the web server we use to run Mapserver as a fastcgi web application. 
