@@ -19,5 +19,3 @@ docker run -d -p 80:80 --name natura2000-service natura2000-example
 ```
 
 Check if it works: http://localhost/natura2000/wms?request=getcapabilities&service=wms&version=1.3.0 should return an getcapabilities document. Loading the http://localhost/natura2000/wms in QGIS or ARCGIS should give access to the map data.
-
-![getcapabilities](/img/getcapabilities-natura2000.jpg)
