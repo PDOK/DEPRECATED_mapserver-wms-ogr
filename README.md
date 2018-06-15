@@ -63,7 +63,7 @@ FROM pdok/mapserver-wms-ogr
 COPY /etc/example.map /srv/data/example.map
 COPY /etc/example.gpkg /srv/data/example.gpkg
 ```
-Running the example above will create a service on the url: http:/localhost/example/wfs? An working example can be found: https://github.com/PDOK/mapserver/tree/natura2000-example
+Running the example above will create a service on the url: http:/localhost/example/wfs? An working example can be found: https://github.com/PDOK/mapserver-wms-ogr/tree/natura2000-example
 
 ## Misc
 ### Why no WFS
