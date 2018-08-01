@@ -52,7 +52,7 @@ RUN apt-get update && \
         libxslt1-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/mapserver/mapserver/ /usr/local/src/mapserver
+RUN git clone --single-branch -b branch-7-2 https://github.com/mapserver/mapserver/ /usr/local/src/mapserver
 
 RUN mkdir /usr/local/src/mapserver/build && \
     cd /usr/local/src/mapserver/build && \
@@ -100,6 +100,7 @@ RUN mkdir /usr/local/src/mapserver/build && \
         -DWITH_APACHE_MODULE=OFF \
         -DWITH_GENERIC_NINT=OFF \
         -DWITH_USE_POINT_Z_M=ON \
+        -DWITH_PROTOBUFC=OFF \
         -DCMAKE_PREFIX_PATH=/opt/gdal && \
     make && \
     make install && \
