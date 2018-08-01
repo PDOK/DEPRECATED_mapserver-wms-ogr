@@ -47,6 +47,7 @@
     MIMETYPE "application/json; subtype=geojson"
     FORMATOPTION "STORAGE=stream"
     FORMATOPTION "FORM=SIMPLE"
+    FORMATOPTION "USE_FEATUREID=true"
   END
 
   OUTPUTFORMAT
@@ -55,4 +56,5 @@
     MIMETYPE "application/json"
     FORMATOPTION "STORAGE=stream"
     FORMATOPTION "FORM=SIMPLE"
+    FORMATOPTION "USE_FEATUREID=true"
   END
