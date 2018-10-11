@@ -118,51 +118,38 @@ COPY --from=0 /usr/local/lib /usr/local/lib
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         fonts-liberation2 \
-        libcairo2-dev \
-        libcurl4-gnutls-dev \
-        libfribidi-dev \
-        libgif-dev \
-        libjpeg-dev \
-        libpq-dev \
-        librsvg2-dev \
-        libpng-dev \
-        libfreetype6-dev \
-        libjpeg-dev \
-        libexempi-dev \
-        libfcgi-dev \
-        libgdal-dev \
-        libgeos-dev \
-        libproj-dev \
-        libxslt1-dev \
+        libcairo2 \
+        libcurl4-gnutls \
+        libfribidi \
+        libpq5 \
+        librsvg2 \
+        libpng16-16  \
+        libfreetype6 \
+        libjpeg62-turbo \
+        libexempi3 \
+        libfcgi0ldbl \
+        libgdal20 \
+        libgeos-c1v5 \
+        libproj12 \
+        libxslt1.1 \
+        libexempi3 \
         wget \
+        lighttpd \
         gnupg && \
     rm -rf /var/lib/apt/lists/*
 
 COPY etc/epsg /usr/share/proj
+COPY etc/lighttpd.conf /lighttpd.conf
 
 RUN chmod o+x /usr/local/bin/mapserv
-
-RUN echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list
-RUN wget http://nginx.org/keys/nginx_signing.key && apt-key add nginx_signing.key
-
-RUN apt-get update && \
-        apt-get install -y --no-install-recommends \
-        nginx \
-        supervisor \
-        uwsgi && \
-        rm -rf /var/lib/apt/lists/*
-
 RUN apt-get clean
 
-RUN mkdir -p /var/log/supervisor
-
-COPY etc/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY etc/nginx.conf /etc/nginx/conf.d/default.conf
-COPY etc/uwsgi.conf /uwsgi.conf
-COPY etc/uwsgi_params /etc/nginx/uwsgi_params
+ENV DEBUG 0
+ENV MIN_PROCS 1
+ENV MAX_PROCS 3
+ENV MAX_LOAD_PER_PROC 4
+ENV IDLE_TIMEOUT 20
 
 EXPOSE 80
 
-WORKDIR /etc/nginx
-
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["lighttpd", "-D", "-f", "/lighttpd.conf"]
