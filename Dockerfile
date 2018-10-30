@@ -117,22 +117,17 @@ COPY --from=0 /usr/local/lib /usr/local/lib
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        fonts-liberation2 \
-        libcairo2 \
-        libcurl4-gnutls \
-        libfribidi \
-        libpq5 \
-        librsvg2 \
         libpng16-16  \
         libfreetype6 \
         libjpeg62-turbo \
-        libexempi3 \
         libfcgi0ldbl \
         libgdal20 \
         libgeos-c1v5 \
         libproj12 \
+        libxml2 \
         libxslt1.1 \
         libexempi3 \
+        gettext-base \
         wget \
         lighttpd \
         gnupg && \
