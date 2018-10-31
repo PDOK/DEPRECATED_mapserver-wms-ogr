@@ -121,7 +121,7 @@ RUN apt-get update && \
         libfreetype6 \
         libjpeg62-turbo \
         libfcgi0ldbl \
-        libfribidi \
+        libfribidi0 \
         libgdal20 \
         libgeos-c1v5 \
         libproj12 \
