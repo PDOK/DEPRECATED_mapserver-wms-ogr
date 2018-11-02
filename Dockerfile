@@ -122,11 +122,7 @@ RUN apt-get update && \
         libfreetype6 \
         libjpeg62-turbo \
         libfcgi0ldbl \
-<<<<<<< HEAD
-        libfribidi-bin \
-=======
         libfribidi0 \
->>>>>>> aa5745a29b8be2d329f7fcfaadbc6c4bf8162378
         libgdal20 \
         libgeos-c1v5 \
         libglib2.0-0 \
