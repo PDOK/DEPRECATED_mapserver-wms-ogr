@@ -4,7 +4,7 @@
 
 ```docker
 docker build -t pdok/mapserver-wms-ogr .
-docker run -e MS_MAPFILE='/srv/data/example.map' -d -p 80:80 --name mapserver-example -v /path/on/host:/srv/data pdok/mapserver-wms-ogr
+docker run -e MS_MAPFILE=/srv/data/example.map -d -p 80:80 --name mapserver-example -v /path/on/host:/srv/data pdok/mapserver-wms-ogr
 
 docker stop mapserver-example
 docker rm mapserver-example
