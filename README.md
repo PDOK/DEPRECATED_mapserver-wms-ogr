@@ -100,7 +100,7 @@ The ENV variables that can be set are:
 The ENV variables, with the exception of MS_MAPFILE have a default value set in the Dockerfile.
 
 ```docker
-docker run -e DEBUG=0 -e MIN_PROCS=1 -e MAX_PROCS=3 -e MAX_LOAD_PER_PROC=4 -e IDLE_TIMEOUT=20 -e MS_MAPFILE='/srv/data/example.map' -d -p 80:80 --name mapserver-run-example -v /path/on/host:/srv/data pdok/mapserver-wms-postgis
+docker run -e DEBUG=0 -e MIN_PROCS=1 -e MAX_PROCS=3 -e MAX_LOAD_PER_PROC=4 -e IDLE_TIMEOUT=20 -e MS_MAPFILE=/srv/data/example.map -d -p 80:80 --name mapserver-run-example -v /path/on/host:/srv/data pdok/mapserver-wms-postgis
 ```
 
 ## Misc
